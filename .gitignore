@@ -1,0 +1,11 @@
+# Editor files #
+################
+/nbproject
+.idea
+*~
+.~lock*
+
+# Grunt #
+##########
+/node_modules
+/.sass-cache

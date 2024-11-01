@@ -1,0 +1,158 @@
+.yay_save_area
+{
+  float: right;
+}
+
+.yay_save_loader
+{
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+}
+
+.yay_save_loader img
+{
+  display: none;
+  position: relative;
+  top: 3px;
+}
+
+.yay_image_caption_label
+{
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.yay_login_correct
+{
+  background-color: #6FF976 !important;
+}
+
+.yay_login_incorrect
+{
+  background-color: #F96F71 !important;
+}
+
+.yay_clear
+{
+  clear: both;
+}
+
+.yay_hidden
+{
+  display: none;
+}
+
+.yay_login_info
+{
+  /* background-color: #efefef; */
+  /*border: #aaaaaa 1px solid;  */
+}
+
+.yay_login_info_text
+{
+  padding-top: 3px;
+  float: left;
+  /* width: 90%; */
+}
+
+.yay_logout_button
+{
+  float: right;
+}
+
+.yay_image_caption_group
+{
+  margin-bottom: 6px;
+}
+
+.yay_download_backup_area {
+  text-align: right;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.yay_backup_options {
+  margin: 5px;
+}
+
+.yay_backup_list {
+  overflow: auto;
+  height: 150px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: #cccccc 1px solid;
+}
+
+.yay_backup_list_item {
+  padding: 5px;
+  border-bottom: #cccccc 1px solid;
+}
+
+.yay_backup_list_item:nth-child(2) {
+  background-color: #eeeeee;
+}
+
+.yay_backup_list_item:hover {
+  background-color: #ffffff;
+}
+
+.yay_download_backup {
+  float: right;
+}
+
+.yay_download_text {
+  float: left;
+  padding-top: 4px;
+}
+
+.yay_download_backup_loader {
+  width: 15px;
+  height: 15px;
+  margin-left: 3px;
+  display: none;
+}
+
+.yay_download_backup_loader img {
+  position: relative;
+  top: 3px;
+}
+
+.yay_offer {
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: #ffffe0;
+  border-color: #e6db55;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.yay_offer_text {
+  float: left;
+  width: 98%;
+}
+
+.yay_offer_close {
+  float: right;
+  font-weight: bold;
+  color: #888888;
+  right: 20px;
+  cursor: pointer;
+}
+
+.yay_offer_close:hover {
+  color: #000000;
+}
+
+.yay_settings_saved {
+  font-weight: bold;
+  display: none;
+  margin-right: 5px;
+}
+
+.yay_show_backup_options, .yay_hide_backup_options {
+  position: relative;
+  top: 5px;
+}

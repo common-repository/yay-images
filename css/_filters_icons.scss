@@ -1,0 +1,28 @@
+@mixin yay-icon($x:0, $y:0, $w:30px, $h:22px){
+    display: inline-block;
+    background: url('../images/filters-icons.png') $x $y no-repeat;
+    width:$w ; height:$h ;
+}
+
+
+.yi-sprite-filters-category-all{ @include yay-icon(0, 0,  43px,  31px); } 
+.yi-sprite-filters-category-celebrity{ @include yay-icon(0, -41px,  43px,  30px); } 
+.yi-sprite-filters-category-illustration{ @include yay-icon(0, -81px,  43px,  31px); } 
+.yi-sprite-filters-explicit-all{ @include yay-icon(0, -122px,  43px,  31px); } 
+.yi-sprite-filters-explicit-on{ @include yay-icon(0, -163px,  43px,  31px); } 
+.yi-sprite-filters-orientation-all{ @include yay-icon(0, -204px,  43px,  31px); } 
+.yi-sprite-filters-orientation-horizontal{ @include yay-icon(0, -245px,  43px,  31px); } 
+.yi-sprite-filters-orientation-panorama{ @include yay-icon(0, -286px,  43px,  30px); } 
+.yi-sprite-filters-orientation-square{ @include yay-icon(0, -326px,  43px,  30px); } 
+.yi-sprite-filters-orientation-vertical{ @include yay-icon(0, -366px,  43px,  31px); } 
+.yi-sprite-filters-people-all{ @include yay-icon(0, -407px,  43px,  30px); } 
+.yi-sprite-filters-people-group{ @include yay-icon(0, -447px,  43px,  31px); } 
+.yi-sprite-filters-people-off{ @include yay-icon(0, -488px,  43px,  30px); } 
+.yi-sprite-filters-people-on{ @include yay-icon(0, -528px,  43px,  31px); } 
+.yi-sprite-filters-people-one{ @include yay-icon(0, -569px,  43px,  30px); } 
+.yi-sprite-filters-people-two{ @include yay-icon(0, -609px,  43px,  31px); } 
+.yi-sprite-filters-vector-all{ @include yay-icon(0, -650px,  43px,  31px); } 
+.yi-sprite-filters-vector-off{ @include yay-icon(4px, -691px,  43px,  31px); } 
+.yi-sprite-filters-vector-on{ @include yay-icon(4px, -733px,  43px,  31px); } 
+
+

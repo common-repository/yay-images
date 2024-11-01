@@ -1,0 +1,1896 @@
+/* **********************
+    AVIARY OVERRIDE
+********************** */
+
+$textGray: #505050;	
+$topGray: #FFF;
+$bottomGray: #E1E1E1;
+
+$topBlue: #29C6F1;
+$bottomBlue:  #21A3C7;
+
+@mixin yay-icon($x:0, $y:0, $w:30px, $h:22px){
+    display: inline-block;
+    background: url(../images/sprite-glyphicons.png) $x $y no-repeat;
+    width:$w ; height:$h ;
+}
+
+@mixin bg-noise-gradient($from: #FFF, $to: #E1E1E1){
+    background: url(../images/bg-noise.png) repeat, -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to)); /* Safari 4-5, Chrome 1-9 */
+    background: url(../images/bg-noise.png) repeat, -webkit-linear-gradient(top, $from, $to); /* Safari 5.1, Chrome 10+ */
+    background: url(../images/bg-noise.png) repeat, -moz-linear-gradient(top, $from, $to); /* Firefox 3.6+ */
+    background: url(../images/bg-noise.png) repeat, -ms-linear-gradient(top, $from, $to); /* IE 10 */
+    background: url(../images/bg-noise.png) repeat, -o-linear-gradient(top, $from, $to);        /* Opera 11.10+ */
+}
+
+
+* {
+    .avpw_is_fullscreen{
+
+        .avpw{
+            @include round-corners();       
+
+            // HEADER *************************
+            #avpw_tool_content_header{
+                @include bg-noise-gradient();
+                @include box-shadow;
+                height: 20px;
+                padding-top: 10px;
+                border-bottom: 0;
+
+                // title
+                .avpw_label{
+                    font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                    font-weight: normal;
+                    color: $textGray;
+                    font-size: 16px;
+                }
+
+                // 'x' button
+                .avpw_close_button{
+                    @include yay-icon(-250px, -350px, 10px, 10px);
+                    border: none;
+                    position: absolute;
+                    right: 5px;
+                    top: 5px;
+                    box-shadow: none;
+
+                    .avpw_close_inner{
+                        display: none;
+                    }
+                }
+
+                .avpw_close_button:hover{
+                    @include yay-icon(-250px, -400px, 10px, 10px);
+                }
+
+            }	// end HEADER
+
+
+            // WRAPPER *************************
+            #avpw_tool_content_wrapper{
+
+
+                // BUTTONS *****************
+                .avpw_button {
+                    @include bg-noise-gradient($topGray, $bottomGray);					
+                    @include round-corners();
+
+                    font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                    font-weight: normal;
+                    font-size: 12px;
+                    color: #3E4952;
+                }
+
+                .avpw_button:hover {					
+                    @include bg-noise-gradient($topGray, $topGray);
+                }
+
+                .avpw_primary_button {
+                    @include bg-noise-gradient($topBlue, $bottomBlue);
+                    @include round-corners();
+
+                    font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                    font-weight: normal;
+                    font-size: 12px;
+                    border: none;
+                    text-shadow: none;
+                }
+
+                .avpw_primary_button:hover {
+                    @include bg-noise-gradient($topBlue, $topBlue);
+                    box-shadow: none;
+                }
+
+
+                // ARROWS ICONS *****************
+                .avpw_prev, .avpw_next {
+
+                    border: none;
+                    box-shadow: none;
+
+                    .avpw_arrow_icon {
+                        left: 16px;
+                        top: 43px;
+                        margin: 0px;
+                    }
+                }
+
+                .avpw_prev {
+                    .avpw_arrow_icon {
+                        @include yay-icon(-50px, -750px, 15px, 22px);
+                    }
+                }
+
+                .avpw_prev.avpw_prev_enabled:hover {
+                    .avpw_arrow_icon {
+                        @include yay-icon(-50px, -800px, 15px, 22px);
+                    }
+                }
+
+                .avpw_next {
+                    .avpw_arrow_icon {
+                        @include yay-icon(0px, -750px, 15px, 22px);
+                    }
+                }
+
+                .avpw_next.avpw_next_enabled:hover {
+                    .avpw_arrow_icon {
+                        @include yay-icon(0px, -800px, 15px, 22px);
+                    }
+                }
+
+
+                // BORDER *****************                
+                .avpw_clip {
+                    border-left: none;
+                    border-right: none;
+                    box-shadow: none;
+                    background: none;
+                }                
+                
+                .avpw_mode_action{
+                    box-shadow: none;
+                    
+                    &:before{
+                        background: none;
+                    }
+                    
+                    &:hover{
+                        border: none;
+                    }
+                }
+
+
+                // PRIMARY ICONS ******************
+                .avpw_tool_pager {
+                    @include bg-noise-gradient();
+                    @include box-shadow;
+
+                    .avpw_icon{						
+
+                        .avpw_icon_image{
+
+                            .avpw_tool_icon_inner:before{
+                                background-image: none;
+                            }
+
+                            .avpw_tool_icon_inner{
+                                background-image: none;
+                                margin: 0px;
+                            }
+                        }
+
+                        .avpw_tool_icon_image{
+
+                        }
+
+                        .avpw_icon_label{
+                            bottom: 10px;
+                            font-weight: 200;
+                        }
+                    }
+
+                    .avpw_tool_icon:hover{
+
+                        .avpw_icon_image{
+
+                            .avpw_tool_icon_inner{
+                                background-image: none
+                            }
+                        }
+                    }
+
+
+                    // ICONS ***********************************
+
+
+                    // EFFECT ******
+                    #avpw_main_effects {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(0px, -950px, 26px, 26px);		
+                            position: absolute;
+                            left: 17px;
+                            top: 17px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(0px, -1000px, 26px, 26px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_effects:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(0px, -1000px, 26px, 26px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // FRAMES ******
+                    #avpw_main_frames {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-50px, -950px, 26px, 20px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 20px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-50px, -1000px, 26px, 20px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_frames:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-50px, -1000px, 26px, 20px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // ENHANCE ******
+                    #avpw_main_enhance {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-100px, -950px, 18px, 20px);	
+                            position: absolute;
+                            left: 21px;
+                            top: 20px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-100px, -1000px, 18px, 20px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_enhance:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-100px, -1000px, 18px, 20px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // CROP ******
+                    #avpw_main_crop {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-150px, -950px, 26px, 26px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 17px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-150px, -1000px, 26px, 26px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_crop:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-150px, -1000px, 26px, 26px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // ORIENTATION ******
+                    #avpw_main_orientation {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-200px, -950px, 26px, 24px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 18px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-200px, -1000px, 26px, 24px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_orientation:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-200px, -1000px, 26px, 24px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // BRIGHTNESS ******
+                    #avpw_main_brightness {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-250px, -950px, 24px, 24px);	
+                            position: absolute;
+                            left: 18px;
+                            top: 18px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-250px, -1000px, 24px, 24px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_brightness:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-250px, -1000px, 24px, 24px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // SATURATION ******
+                    #avpw_main_saturation {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-300px, -950px, 24px, 24px);	
+                            position: absolute;
+                            left: 18px;
+                            top: 18px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-300px, -1000px, 24px, 24px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_saturation:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-300px, -1000px, 24px, 24px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // SHARPNESS ******
+                    #avpw_main_sharpness {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-350px, -950px, 26px, 25px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 18px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-350px, -1000px, 26px, 25px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_sharpness:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-350px, -1000px, 26px, 25px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // REDEYE ******
+                    #avpw_main_redeye {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-400px, -950px, 26px, 21px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 20px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-400px, -1000px, 26px, 21px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_redeye:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-400px, -1000px, 26px, 21px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // BLEMISH ******
+                    #avpw_main_blemish {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-450px, -950px, 26px, 26px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 17px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-450px, -1000px, 26px, 26px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_blemish:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-450px, -1000px, 26px, 26px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // WHITEN ******
+                    #avpw_main_whiten {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(0px, -1050px, 26px, 23px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 19px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(0px, -1100px, 26px, 23px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_whiten:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(0px, -1100px, 26px, 23px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // COLORSPLASH ******
+                    #avpw_main_colorsplash {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-50px, -1050px, 26px, 21px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 20px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-50px, -1100px, 26px, 21px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_colorsplash:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-50px, -1100px, 26px, 21px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // WARMTH ******
+                    #avpw_main_warmth {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-100px, -1050px, 25px, 26px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 17px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-100px, -1100px, 25px, 26px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_warmth:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-100px, -1100px, 25px, 26px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // CONTRAST ******
+                    #avpw_main_contrast {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-150px, -1050px, 26px, 26px);	
+                            position: absolute;
+                            left: 17px;
+                            top: 17px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-150px, -1100px, 26px, 26px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_contrast:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-150px, -1100px, 26px, 26px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // FOCUS ******
+                    #avpw_main_focus {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-200px, -1050px, 25px, 25px);
+                            position: absolute;
+                            left: 17px;
+                            top: 17px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-200px, -1100px, 25px, 25px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_focus:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-200px, -1100px, 25px, 25px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // RESIZE ******
+                    #avpw_main_resize {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-250px, -1050px, 24px, 24px);
+                            position: absolute;
+                            left: 18px;
+                            top: 18px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-250px, -1100px, 24px, 24px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_resize:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-250px, -1100px, 24px, 24px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // OVERLAY ******
+                    #avpw_main_overlay {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-300px, -1050px, 26px, 26px);
+                            position: absolute;
+                            left: 17px;
+                            top: 17px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-300px, -1100px, 26px, 26px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_overlay:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-300px, -1100px, 26px, 26px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // TEXT WITH FONT ******
+                    #avpw_main_textwithfont {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-350px, -1050px, 20px, 22px);
+                            position: absolute;
+                            left: 20px;
+                            top: 19px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-350px, -1100px, 20px, 22px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_textwithfont:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-350px, -1100px, 20px, 22px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+
+
+                    // DRAWING ******
+                    #avpw_main_drawing {
+
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-400px, -1050px, 25px, 26px);
+                            position: absolute;
+                            left: 17px;
+                            top: 17px;
+                        }
+
+                        .avpw_icon_label:hover ~ .avpw_icon_image {
+                            .avpw_tool_icon_inner {
+                                @include yay-icon(-400px, -1100px, 25px, 26px);
+                            }
+                        }
+                    } 
+
+                    #avpw_main_drawing:hover {
+                        .avpw_tool_icon_inner {
+                            @include yay-icon(-400px, -1100px, 25px, 26px);
+                        }
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    } 
+                    // END ICONS ************
+
+                }	// end .avpw_tool_pager
+
+
+
+                // DETAILED OPTIONS ***********************************
+                #avpw_tool_options_container {
+                    @include bg-noise-gradient();
+                    @include box-shadow;
+
+                }	// end #avpw_tool_options_container
+
+                #avpw_options_container {
+
+                    #avpw_tool_container {
+
+                    }	// end #avpw_tool_container
+
+                }	// end #avpw_options_container
+
+                .avpw_controlpanel {
+
+                    // ICON CONTAINER/BORDER AND LABEL *************************
+
+                    // ENHANCE ******
+                    .avpw_tool_cutout_centered_enhance {
+                        width: 330px;
+                        margin-left: -165px;
+
+                        .avpw_inset_button {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            margin: 0px 5px;
+                            border: 1px solid rgba(0,0,0,0.15);
+                        }
+
+                        .avpw_inset_button_label {
+                            width: 110px;
+                        }
+
+                    }	// end .avpw_tool_cutout_centered_enhance
+
+                    // ORIENTATION ******
+                    .avpw_tool_cutout_centered_orientation {
+                        width: 470px;
+                        margin-left: -235px;
+
+                        .avpw_inset_button {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            margin: 0px 5px;
+                            border: 1px solid rgba(0,0,0,0.15);
+                        }
+
+                        .avpw_inset_button_label_2 {
+                            width: 220px;
+                        }
+                    }	// end .avpw_tool_cutout_centered_orientation
+
+                    // BRUSH SIZE (REDEYE, BLEMISH, WHITEN, SPLASH, DRAW) ******
+                    .avpw_tool_cutout_centered_spot_tool {
+                        width: 320px;
+                        margin-left: -160px;
+
+                        .avpw_inset_button {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            margin: 0px 5px;
+                            border: 1px solid rgba(0,0,0,0.1);
+                        }
+
+                        .avpw_inset_button_label {
+                            width: 320px;
+                        }
+                    }	// end .avpw_tool_cutout_centered_spot_tool
+
+                    // SPLASH ******
+                    .avpw_tool_cutout_centered_colorsplash {
+                        width: 680px;
+                        //margin-left: -160px;
+
+                        .avpw_inset_button {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            margin: 0px 5px;
+                            border: 1px solid rgba(0,0,0,0.15);
+                        }
+
+                        .avpw_inset_button_label {
+                            width: 110px;
+                        }
+
+                        .avpw_inset_button_label_mini_5 {
+                            width: 310px;
+                        }
+
+                    }	// end .avpw_tool_cutout_centered_colorsplash
+
+                    // FOCUS ******
+                    .avpw_tool_cutout_centered_tiltshift {
+                        width: 220px;
+                        margin-left: -110px;
+
+                        .avpw_inset_button {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            margin: 0px 5px;
+                            border: 1px solid rgba(0,0,0,0.15);
+                        }
+
+                        .avpw_inset_button_label {
+                            width: 220px;
+                        }
+                    }	// end .avpw_tool_cutout_centered_tiltshift
+
+                    // RESIZE ******
+                    .avpw_tool_cutout_centered_resize {
+
+                        .avpw_number_input {
+                            font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                            font-weight: normal;
+                            font-size: 24px;
+                        }
+
+                        .avpw_resize_constrain {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            margin: 0px 15px;
+                            border: 1px solid rgba(0,0,0,0.1);
+
+                            height: 50px;
+                            width: 50px;
+
+                            // LOCK ICON
+                            .avpw_checkmark_button {
+                                margin: 0px;		// hack
+                                top: 0px;
+                                left: 0px;
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                            .avpw_inset_button {
+                                background-color: rgba(0,0,0,0);
+                                margin: 0px;
+                                top: 0px;
+                                left: 0px;
+                                width: 100%;
+                                height: 100%;
+
+                                .avpw_lock_icon {
+                                    @include yay-icon(-150px, -100px, 21px, 26px);
+                                    margin: 0px;
+
+                                    left: 15px;
+                                    top: 12px;
+                                }
+                            }
+
+                            .avpw_inset_button:hover {
+
+                                .avpw_lock_icon {
+                                    @include yay-icon(-150px, -150px, 21px, 26px);
+                                }
+                            }
+
+                            .avpw_inset_button.avpw_inset_button_active {
+                                background-color: none;
+                                margin: 0px;
+                                top: 0px;
+                                left: 0px;
+
+                                .avpw_lock_icon {
+                                    @include yay-icon(-200px, -750px, 21px, 26px);
+                                    margin: 0px;
+
+                                    left: 15px;
+                                    top: 12px;
+                                }
+                            }
+
+                            .avpw_inset_button.avpw_inset_button_active:hover {
+
+                                .avpw_lock_icon {
+                                    @include yay-icon(-200px, -800px, 21px, 26px);
+                                }
+                            }
+
+                        }	// end .avpw_resize_constrain
+                    }	// end .avpw_tool_cutout_centered_resize
+
+                    // TEXT ******
+                    .avpw_tool_cutout_fixed {
+
+                        .avpw_inset_button {
+                            border:	none;
+                            background: none;
+                        }
+                    }	// end .avpw_tool_cutout_fixed
+
+                    // DRAW ******
+                    .avpw_tool_cutout_centered_drawing {
+                        width: 850px;
+                        margin-left: -425px;
+
+                        .avpw_inset_color_widget {
+                            margin-right: 10px;
+
+                            .avpw_inset_button {
+                                border:	none;
+                                background: none;
+                            }
+                        }	// end .avpw_inset_color_widget
+
+                        .avpw_inset_button {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            margin: 0px 5px;
+                            border: 1px solid rgba(0,0,0,0.15);
+                        }
+
+                        .avpw_inset_button_label.avpw_inset_color_widget_label {
+                            width: 390px;
+                        }
+
+                        .avpw_inset_button_label {
+                            width: 110px;
+                        }
+
+                        .avpw_inset_button_label_mini_5 {
+                            width: 310px;
+                        }
+
+                        .avpw_inset_group_mini_spacer {
+                            //display: none;
+                        }
+                    }	// end .avpw_tool_cutout_centered_drawing
+
+
+
+                    // ICON LABELS ******
+                    .avpw_filter_icon {
+
+                        .avpw_icon_label {
+                            font-weight: 200;
+                        }
+                    }
+
+                    .avpw_filter_icon:hover{
+
+                        .avpw_icon_label{
+                            color: $bottomBlue;
+                        }
+                    }
+
+
+
+                    // 
+                    .avpw_label {
+                        font-weight: 200;
+                    }
+
+                    // ICONS *******************************
+                    .avpw_inset_button_group {
+
+                        // ENHANCE, BRUSH SIZE, FOCUS, TEXT, DRAW
+                        .avpw_inset_button {						
+
+                            .avpw_enhance_button_inner {
+                                margin: 0px;
+                            }
+
+                            // ENHANCE
+                            #avpw_enhance_icon_one {
+                                @include yay-icon(0px, -1150px, 28px, 25px);
+                                left: 35px;
+                                top: 13px;								
+                            }
+
+                            #avpw_enhance_icon_two {
+                                @include yay-icon(-50px, -1150px, 20px, 26px);
+                                left: 39px;
+                                top: 12px;								
+                            }
+
+                            #avpw_enhance_icon_four {
+                                @include yay-icon(-200px, -1150px, 24px, 25px);
+                                left: 37px;
+                                top: 13px;								
+                            }
+
+                            // BRUSH SIZE (REDEYE, BLEMISH, WHITEN, SPLASH, DRAW)
+                            .avpw_brush_size_1{
+                                @include yay-icon(-100px, -1250px, 11px, 11px);
+                                left: 20px;
+                                top: 20px;
+                                margin: 0px;
+                            }
+
+                            .avpw_brush_size_2{
+                                @include yay-icon(-150px, -1250px, 15px, 15px);
+                                left: 18px;
+                                top: 18px;
+                                margin: 0px;
+                            }
+
+                            .avpw_brush_size_3{
+                                @include yay-icon(-200px, -1250px, 19px, 19px);
+                                left: 16px;
+                                top: 16px;
+                                margin: 0px;
+                            }
+
+                            .avpw_brush_size_4{
+                                @include yay-icon(-250px, -1250px, 23px, 23px);
+                                left: 14px;
+                                top: 14px;
+                                margin: 0px;
+                            }
+
+                            .avpw_brush_size_5{
+                                @include yay-icon(-300px, -1250px, 27px, 27px);
+                                left: 12px;
+                                top: 12px;
+                                margin: 0px;
+                            }
+
+                            // SPLASH
+                            .avpw_colorsplash_freebrush_icon {
+                                @include yay-icon(0px, -1250px, 25px, 22px);
+                                left: 37px;
+                                top: 14px;
+                                margin: 0px;
+                            }
+
+                            .avpw_colorsplash_smartbrush_icon {
+                                @include yay-icon(-50px, -1250px, 25px, 23px);
+                                left: 37px;
+                                top: 15px;
+                                margin: 0px;
+                            }
+
+                            // FOCUS
+                            .avpw_tiltshift_circle_icon {
+                                @include yay-icon(-350px, -1250px, 30px, 30px);
+                                left: 34px;
+                                top: 10px;
+                                margin: 0px;
+                            }
+
+                            .avpw_tiltshift_rectangle_icon {
+                                @include yay-icon(-400px, -1250px, 30px, 25px);
+                                left: 34px;
+                                top: 13px;
+                                margin: 0px;
+                            }
+
+                            // TEXT
+                            .avpw_preset_color_image{
+                                border: 1px solid rgba(0, 0, 0, 0.1);
+                            }
+
+                            // DRAW
+                            .avpw_colorsplash_eraser_icon {
+                                @include yay-icon(0px, -1350px, 26px, 26px);
+                                left: 36px;
+                                top: 12px;
+                                margin: 0px;
+                            }
+
+                        }	// end .avpw_inset_button
+
+                        // when selected or hovered
+                        .avpw_inset_button.avpw_inset_button_down, .avpw_inset_button.avpw_preset_icon_active, .avpw_inset_button:hover {
+
+                            #avpw_enhance_icon_one {
+                                @include yay-icon(0px, -1200px, 28px, 25px);
+                            }
+
+                            #avpw_enhance_icon_two {
+                                @include yay-icon(-50px, -1200px, 20px, 26px);
+                            }
+
+                            #avpw_enhance_icon_four {
+                                @include yay-icon(-200px, -1200px, 24px, 25px);			
+                            }
+
+                            // BRUSH SIZE (REDEYE, BLEMISH, WHITEN, SPLASH, DRAW)
+                            .avpw_brush_size_1{
+                                @include yay-icon(-100px, -1300px, 11px, 11px);
+                            }
+
+                            .avpw_brush_size_2{
+                                @include yay-icon(-150px, -1300px, 15px, 15px);
+                            }
+
+                            .avpw_brush_size_3{
+                                @include yay-icon(-200px, -1300px, 19px, 19px);
+                            }
+
+                            .avpw_brush_size_4{
+                                @include yay-icon(-250px, -1300px, 23px, 23px);
+                            }
+
+                            .avpw_brush_size_5{
+                                @include yay-icon(-300px, -1300px, 27px, 27px);
+                            }
+
+                            // SPLASH
+                            .avpw_colorsplash_freebrush_icon {
+                                @include yay-icon(0px, -1300px, 25px, 22px);
+                            }
+
+                            .avpw_colorsplash_smartbrush_icon {
+                                @include yay-icon(-50px, -1300px, 25px, 23px);
+                            }
+
+                            // FOCUS
+                            .avpw_tiltshift_circle_icon {
+                                @include yay-icon(-350px, -1300px, 30px, 30px);
+                            }
+
+                            .avpw_tiltshift_rectangle_icon {
+                                @include yay-icon(-400px, -1300px, 30px, 25px);
+                            }
+
+                            // TEXT
+                            .avpw_brush_color_icon:hover, .avpw_brush_color_icon.avpw_preset_icon_active {
+                                .avpw_preset_color_image {
+                                    border: 2px solid rgba(33, 163, 199, 1);
+                                }
+                            }
+
+                            // DRAW
+                            .avpw_colorsplash_eraser_icon {
+                                @include yay-icon(0px, -1400px, 26px, 26px);
+                            }
+
+                        }	// end .avpw_inset_button.avpw_inset_button_down, .avpw_inset_button:hover
+
+
+
+                        // ORIENTATION
+                        #avpw_rotate_left{
+                            .avpw_orientation_button_inner{
+                                @include yay-icon(-150px, -1150px, 23px, 26px);
+                                left: 38px;
+                                top: 12px;
+                                margin: 0px;
+                            }
+                        }
+
+                        #avpw_rotate_left:hover{
+                            .avpw_orientation_button_inner{
+                                @include yay-icon(-150px, -1200px, 23px, 26px);
+                            }
+                        }
+
+                        #avpw_rotate_right{
+                            .avpw_orientation_button_inner{
+                                @include yay-icon(-100px, -1150px, 23px, 26px);
+                                left: 38px;
+                                top: 12px;
+                                margin: 0px;
+                            }
+                        }
+
+                        #avpw_rotate_right:hover{
+                            .avpw_orientation_button_inner{
+                                @include yay-icon(-100px, -1200px, 23px, 26px);
+                            }
+                        }
+
+                        #avpw_flip_h{
+                            .avpw_orientation_button_inner{
+                                @include yay-icon(-350px, -1150px, 29px, 24px);
+                                left: 35px;
+                                top: 13px;
+                                margin: 0px;
+                            }
+                        }
+
+                        #avpw_flip_h:hover{
+                            .avpw_orientation_button_inner{
+                                @include yay-icon(-350px, -1200px, 29px, 24px);
+                            }
+                        }
+
+                        #avpw_flip_v{
+                            .avpw_orientation_button_inner{
+                                @include yay-icon(-400px, -1150px, 24px, 29px);
+                                left: 37px;
+                                top: 11px;
+                                margin: 0px;
+                            }
+                        }
+
+                        #avpw_flip_v:hover{
+                            .avpw_orientation_button_inner{
+                                @include yay-icon(-400px, -1200px, 24px, 29px);
+                            }
+                        }
+
+
+
+                    }	// end .avpw_inset_button_group
+
+                    // label
+                    .avpw_inset_group {
+                        border: none;
+
+                        .avpw_inset_button_label {
+
+                        }
+
+                        .avpw_label {
+
+                        }
+
+                        // CROP
+                        .avpw_button_with_text {
+                            @include bg-noise-gradient($topGray, $bottomGray);							
+                            @include round-corners();
+
+                            font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                            font-weight: normal;
+                            font-size: 12px;
+
+                            margin: 0px 5px;
+                            border: 1px solid rgba(0,0,0,0.1);
+
+                            #avpw_crop_preset_label {
+                                font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                                font-weight: normal;
+                                font-size: 12px;
+
+                                display: block;				// hack
+                                margin-top: 16px;			// hack
+
+                            }	// end #avpw_crop_preset_label
+
+                        }	// end .avpw_button_with_text
+
+                        .avpw_button_with_text:hover, .avpw_button_with_text.avpw_inset_button_down {
+                            @include bg-noise-gradient($topBlue, $bottomBlue);
+                            color: $topGray;
+
+                            #avpw_crop_preset_label {
+                                color: $topGray;
+                            }	// end #avpw_crop_preset_label:hover
+
+                            // ICON
+                            .avpw_invert_button_inner {
+                                @include yay-icon(-250px, -1200px, 24px, 24px);								
+                            }
+
+                        }	// end .avpw_button_with_text:hover
+
+                        // DROP DOWN MENU
+                        #avpw_crop_preset_overlay_inner {
+                            @include round-corners();
+                            border: 1px solid rgba(0,0,0,0.1);
+                            @include box-shadow(0px,5px,10px,0.2);
+
+                            .avpw_dropdown_tail {
+                                display: none;			// not display the quote bubble
+                            }
+
+                            .avpw_crop_preset_button {
+                                border-right: 1px solid rgba(0,0,0,0.1);
+
+                                font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                                font-weight: normal;
+                                font-size: 12px;
+                            }
+
+                            .avpw_crop_preset_button:last-child {
+                                border-right: none;
+                            }
+
+                            .avpw_crop_preset_button:hover, .avpw_crop_preset_button.avpw_inset_button_down {
+                                background-color: $bottomBlue;
+                                color: $topGray;
+                            }
+
+                            .avpw_crop_preset_button:nth-child(2):hover, .avpw_crop_preset_button.avpw_inset_button_down:nth-child(2) {
+                                background-color: $bottomBlue;
+                                color: $topGray;
+                                @include round-corners(5px,0px,0px,5px);
+                            }
+
+                            .avpw_crop_preset_button:last-child:hover, .avpw_crop_preset_button.avpw_inset_button_down:last-child {
+                                background-color: $bottomBlue;
+                                color: $topGray;
+                                @include round-corners(0px,5px,5px,0px);
+                            }
+
+                        }	// end #avpw_crop_preset_overlay_inner
+
+                        #avpw_crop_preset_overlay_inner:last-child {
+                            border: none;		// hack
+                        }
+
+                        // ICON
+                        #avpw_crop_invert_button {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            margin: 0px 5px;
+                            border: 1px solid rgba(0,0,0,0.1);
+
+                            // ICON
+                            .avpw_invert_button_inner {
+                                @include yay-icon(-250px, -1150px, 24px, 24px);
+                                left: 19px;
+                                top: 13px;
+                                margin: 0px;
+                            }
+                        }	// end #avpw_crop_invert_button
+
+                        #avpw_crop_invert_button:hover {
+
+                            .avpw_invert_button_inner {
+                                @include yay-icon(-250px, -1200px, 24px, 24px);
+                            }
+
+                        }	// end .avpw_button_with_text:hover
+
+
+                    }	// end .avpw_inset_group
+
+
+                    // TEXT
+                    #avpw_font_browser {
+                        @include bg-noise-gradient();
+                        @include round-corners();
+                        //@include box-shadow();
+                        border: 1px solid #D9D9D9;
+                        width: 300px;
+
+                        .avpw_inset_button {
+                            width: 100%;
+
+                            .avpw_dropdown_icon {
+                                border: none;
+
+                                .avpw_dropdown_icon_inner{
+                                    @include yay-icon(-300px, -350px, 12px, 8px);
+                                    left: 2px;
+                                    top: 21px;
+                                    margin: 0px;
+                                }
+                            }	// end .avpw_dropdown_icon
+                        }	// end .avpw_inset_button
+
+                    }	// end #avpw_font_browser
+
+                    #avpw_font_browser:hover {
+
+                        .avpw_inset_button {
+                            width: 100%;
+
+                            .avpw_dropdown_icon {								
+
+                                .avpw_dropdown_icon_inner{
+                                    @include yay-icon(-300px, -400px, 12px, 8px);									
+                                }
+                            }	// end .avpw_dropdown_icon
+
+                        }	// end .avpw_inset_button
+
+                    }	// end #avpw_font_browser:hover
+
+                    #avpw_textwithfont_addtext {
+                        @include bg-noise-gradient();
+                        @include round-corners();						
+                        border: 1px solid #D9D9D9;
+
+                        .avpw_inset_button_with_plus {
+                            padding: 0 35px 0 5px;
+
+                            .avpw_plus_icon{
+                                @include yay-icon(-100px, -350px, 14px, 15px);								
+                                left: 75px;
+                                top: 15px;
+                                margin: 0px;
+                            }	// end .avpw_plus_icon
+
+                        }	// end .avpw_inset_button_with_plus
+
+                    }	// end #avpw_textwithfont_addtext
+
+                    #avpw_textwithfont_addtext:hover {						
+
+                        .avpw_inset_button_with_plus {
+
+
+                            .avpw_plus_icon{
+                                @include yay-icon(-100px, -400px, 14px, 15px);								
+                            }	// end .avpw_plus_icon
+
+                        }	// end .avpw_inset_button_with_plus
+
+                    }	// end #avpw_textwithfont_addtext
+
+
+
+                }	// end .avpw_controlpanel
+
+
+                // SLIDER
+                .avpw_controlpanel.avpw_tool_fixed {
+                    width: 230px;
+                    margin-left: -115px;
+
+                    // SLIDER
+                    .avpw_slider_container{
+
+                        .avpw_slider_bookend_left {
+                            font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                            font-weight: normal;
+                            font-size: 24px;
+                        }
+
+                        .avpw_slider_bookend_left:hover {
+                            color: $bottomBlue;
+                        }
+
+                        .avpw_slider_positioned {
+                            margin-top: 10px;
+
+                            .avpw_slider_positioned_inner{
+                               /* width:145px;
+                                height:15px;
+                                //background:url(../images/slider-bg.png);
+                                position:relative;
+                                margin:0;
+                                padding:0 10px;
+                                overflow:visible;
+
+                                border: 0px;*/
+
+                                .avpw_slider_bounds{
+
+                                    .avpw_slider_goo{
+                                        @include bg-noise-gradient($topBlue, $bottomBlue);
+                                    }
+
+                                    .Davpw_slider_goo{
+                                        background:url(../images/fill.png) no-repeat left;
+                                        height:15px;
+                                        left:1px;
+                                        top:0;
+                                        position:absolute;
+                                    }
+
+                                    /*.avpw_slider_handle{
+                                        width: 26px;
+                                        height: 27px;
+                                        position: absolute;
+                                        top: 13px;
+                                        margin-left: -12px;
+                                        z-index: 200;
+                                        background: url(../images/slider-button.png);
+
+                                        border-radius: 0px;
+
+                                    }*/	// end .avpw_slider_handle
+
+                                }	// end .avpw_slider_bounds
+
+                            }	// end .avpw_slider_positioned_inner
+
+                        }	// end .avpw_slider_positioned
+
+                        .avpw_slider_bookend_right {
+                            font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                            font-weight: normal;
+                            font-size: 24px;
+                        }
+
+                        .avpw_slider_bookend_right:hover {
+                            color: $bottomBlue;
+                        }
+
+                    }	// end .avpw_slider_container
+
+                }	// end .avpw_controlpanel.avpw_tool_fixed	
+
+            }	// end WRAPPER
+
+
+            // BODY *************************
+            .avpw_canvas_background {
+
+                // LOADING GRAPHIC  *****************
+                .avpw_canvas_spinner {
+
+                }	// end .avpw_canvas_spinner
+
+                // CONTROL  *****************
+                .avpw_zoom_visible {
+
+                    // ZOOM ICON
+                    #avpw_zoom_icon {
+                        @include yay-icon(-450px, -1050px, 25px, 25px);
+
+                        margin: 0px;
+                        left: 0px;
+                        top: 0px;
+                    }
+
+                    #avpw_zoom_icon:hover {
+                        @include yay-icon(-450px, -1100px, 25px, 25px);
+                    }
+
+
+                    // ZOOM SLIDER
+                    .avpw_zoom_slider_container{
+                        top: -5px;
+
+                        .avpw_slider_bookend {
+                            top: 5px;
+                            font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                            font-weight: normal;
+                            font-size: 18px;
+                        }
+
+                        .avpw_slider_bookend:hover {
+                            color: $bottomBlue;
+                        }
+
+                        .avpw_slider_bookend_left {
+
+                        }
+
+                        /*#avpw_zoom_inner {
+                            width:145px;
+                            height:15px;
+                            background:url(../images/slider-bg.png);
+                            position:relative;
+                            margin:0;
+                            padding:0 10px;
+                            overflow:visible;
+                            left: 30px;
+
+                            border: 0px;
+                        }*/
+
+                        #avpw_zoom_slider {
+
+                           /* #avpw_zoom_handle{
+                                width: 26px;
+                                height: 27px;
+                                position: absolute;
+                                top: 9px;
+                                margin-left: -12px;
+                                z-index: 200;
+                                background: url(../images/slider-button.png);
+
+                                border-radius: 0px;
+
+                            }	*/ // end #avpw_zoom_handle
+
+                        }	// end #avpw_zoom_slider
+
+                        .avpw_slider_bookend_right {
+
+                        }
+
+                    }	// end .avpw_zoom_slider_container
+
+
+                }	// end .avpw_zoom_visible
+
+
+                // CONTROLS **************
+                .avpw_canvas_controls {
+
+                    .avpw_selection_overlay {
+                        @include round-corners();
+                        //border: 1px solid rgba(0,0,0,0.5);
+                        border: none;
+
+                        // CLOSE BUTTON 'X'
+                        .avpw_close_button{
+                            background: none;
+                            border: none;
+                            height: 28px;
+                            width: 28px;
+                            overflow: auto;
+                            margin: 0px;
+                            top: -15px;
+                            left: -15px;
+                            box-shadow: none;
+
+                            .avpw_close_inner{								
+                                @include yay-icon(-100px, -750px, 26px, 26px);
+                                border: none;
+                                position: absolute;								
+                                left: 1px;
+                                top: -1px;
+                                margin: 0px;
+                                border: 1px solid $topGray;
+                                @include round-corners(30px, 30px, 30px, 30px);
+                                background-color: $topGray;								
+                                color: rgba(0,0,0,0);		// hack
+
+                            }
+                        }
+
+                        .avpw_close_button:hover{
+
+                            .avpw_close_inner{								
+                                @include yay-icon(-100px, -800px, 26px, 26px);
+                                border: 1px solid $topGray;
+                                background-color: $topGray;
+                            }
+                        }
+
+                    }
+
+                    .avpw_selection_overlay_editing {
+                        // CLOSE BUTTON 'X'
+                        .avpw_close_button{
+                            display: block;
+                        }
+                    }
+
+                    // FOCUS BORDER
+                    .avpw_tiltshift_overlay.avpw_selection_overlay_selected {
+                        border: none;
+                    }
+
+                    // HANDLE
+                    #avpw_straighten_handle {
+                        @include yay-icon(-50px, -1350px, 30px, 30px);
+                        margin-left: -15px;
+                        margin-top: -5px;
+                        border: 1px solid rgba(0,0,0,0.2);
+                        @include round-corners(20px, 20px, 20px, 20px);
+                    }
+
+                    #avpw_straighten_handle:hover {
+                        @include yay-icon(-50px, -1400px, 30px, 30px);
+                    }
+
+                    .avpw_selection_overlay_size_handle {
+                        @include yay-icon(-100px, -1350px, 30px, 30px);
+                        right: -15px;
+                        bottom: -15px;
+                        border: 1px solid rgba(0,0,0,0.2);
+                        @include round-corners(20px, 20px, 20px, 20px);
+                        display: none;		// hack
+                    }
+
+                    .avpw_selection_overlay_size_handle:hover {
+                        @include yay-icon(-100px, -1400px, 30px, 30px);
+                    }
+
+                    // SELECTION BORDER WHEN AN OPTION IS SELECTED
+                    .avpw_selection_overlay_selected {
+                        @include round-corners();
+                        border: 1px solid rgba(0,0,0,0.5);
+
+                        .avpw_selection_overlay_size_handle {
+                            display: inline-block;
+                        }
+                    }	// end .avpw_selection_overlay_selected
+
+                    .avpw_textwithfont_entry, .avpw_textwithfont_entry:focus {
+                        top: 12px;	// hack
+                    }
+
+                    // CROP HANDLE
+                    .avpw_crop_handle {
+                        @include yay-icon(-250px, -700px, 30px, 30px);
+                        border: 1px solid rgba(0,0,0,0.2);
+                    }	// end .avpw_crop_handle
+
+                }	// end .avpw_canvas_controls
+
+            }	// end .avpw_canvas_background
+
+            #avpw_canvas_embed {
+                z-index: 0;          // hack
+                top: 140px;          // hack
+                border-top: 0;
+                background: #E0E0E0;
+            }	// end #avpw_canvas_embed
+
+            #avpw_powered_branding {
+                display: none;
+            }
+
+            // end BODY
+
+
+            // MESSAGE CONFIRMATION POPUP
+            .avpw_messaging_confirmation {
+
+                .avpw_app_popup {
+                    @include round-corners();
+                    border: 1px solid rgba(0,0,0,0.1);
+                    @include box-shadow(0px,5px,10px,0.2);
+
+                    border: none;
+                    background-color: $topGray;
+
+                    .avpw_message_text {
+                        font-weight: 200;
+                        color: $textGray;
+                    }
+
+                    .avpw_message_buttons {		
+
+                        .avpw_button {
+                            @include bg-noise-gradient($topGray, $bottomGray);
+                            @include round-corners();
+
+                            font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                            font-weight: normal;
+                            font-size: 12px;
+                        }
+
+                        .avpw_button:hover {
+                            @include bg-noise-gradient($topBlue, $topBlue);
+                            color: $topGray;
+                        }
+
+                        .avpw_primary_button {
+                            @include bg-noise-gradient($topBlue, $bottomBlue);
+                            @include round-corners();    
+                            font-family: 'NovecentowideBookRegular', 'Helvetica neue', arial, tahoma;
+                            font-weight: normal;
+                            font-size: 12px;
+                        }           
+
+                        .avpw_primary_button:hover {
+                            @include bg-noise-gradient($topBlue, $topBlue);
+                        }
+
+                    }	// end .avpw_message_buttons
+
+                }	// end .avpw_app_popup
+
+            }	// end .avpw_messaging_confirmation
+
+
+            // TEXT/FONT DROP DOWN MENU
+            .avpw_dropdown_popup {
+                @include round-corners();
+                border: 1px solid rgba(0,0,0,0.1);
+                @include box-shadow(0px,5px,10px,0.2);
+
+                border: none;
+                background-color: $textGray;
+                width: 300px;
+
+                .avpw_dropdown_tail {
+                    display: none;
+                }
+
+                .avpw_dropdown_popup_inner {
+                    width: 100%;
+                    border: none;
+
+                    ul.avpw_dropdown_popup_list {
+
+                        li.avpw_dropdown_popup_list_item {
+                            background-color: $textGray;
+                            border: none;
+
+                        }
+
+                        li.avpw_dropdown_popup_list_item:hover {
+                            background-color: $topBlue;
+                            border: none;
+
+                        }
+
+                        li.avpw_dropdown_popup_list_item.avpw_dropdown_popup_list_item_selected {
+                            background-color: $bottomBlue;
+                            border: none;
+
+                        }
+
+
+
+                    }	// end ul.avpw_dropdown_popup_list
+
+                }	// end .avpw_dropdown_popup_inner
+
+                .avpw_color_picker_background {background-color: $textGray; }
+
+            }	// end .avpw_dropdown_popup
+
+
+            // SELECTION BORDER WHEN AN OPTION IS SELECTED
+            .avpw_selection_overlay_selected {
+                @include round-corners();
+                border: 1px solid rgba(0,0,0,0.5);
+
+                .avpw_selection_overlay_size_handle {
+                    //display: inline-block;
+                }
+            }	// end .avpw_selection_overlay_selected
+
+
+        }	// end .avpw
+
+    }	// end .avpw_is_fullscreen
+
+}/* END AVIARY OVERRIDE */
+
+@media (min-width: 320px) and (max-width: 639px){
+    #aviary-box{
+        width: 310px;
+        position: fixed; top: 0px; left: 0px;
+        height: 400px;
+    }
+    * {
+        .avpw_is_fullscreen{
+
+            .avpw{
+                border-radius: 0;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important; 
+                min-width: 310px !important;
+                min-height: 310px !important;
+                width: 310px !important;
+
+                #avpw_canvas_embed{
+                    max-width: 310px;
+                    max-height: 310px;
+
+                    #avpw_canvas_element, #avpw_canvas_controls_layer{
+                        margin-left: -202px;
+                        margin-top: -45px;
+                    }
+                    #avpw_canvas_element{
+                        //  margin-left: -202px;
+                        //  margin-top: -90px;
+                    }
+                }
+            }
+        }
+    }
+}

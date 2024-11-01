@@ -1,0 +1,107 @@
+
+/* **********************
+    ERROR MESSAGES
+********************** */
+
+#yi-flash-msg{
+    position: fixed;
+    top: 0;
+    left: 0;    
+    width: 100%;
+    z-index: 99999; 
+    display: none;
+}
+
+#system-message{
+    margin-top: 20px; 
+
+    dt {
+        display: none;
+    }
+
+    dd {
+
+        margin: 0;
+        font-weight: bold;
+
+        ul {
+            background: #f5f5f5;
+            @include round-corners();
+            position: relative;
+            padding: 15px 30px 15px 60px;
+            width: 400px;
+            margin: 50px 70px 0 0;
+            position: relative;
+            list-style: none;
+            color: #7D7D7D;  
+            border: none;
+            float: right;
+            @include box-shadow(5px, 10px, 15px, 0.2);
+
+            li{
+                line-height: 26px;
+            }
+
+            .message-title{
+                margin: 0;
+                font-family: 'NovecentowideBookRegular','Helvetica neue',arial,tahoma;
+            }
+
+            .message-content{
+                margin: 0;
+            }
+
+            li:first-child:before {
+                content: '';
+                position: absolute;
+                left: 20px;
+                top: 15px;
+                width: 30px;
+                height: 30px;
+            }
+
+        }
+
+        .yi-closeButton{
+            position: absolute;
+            right: 12px;
+            top: 10px;
+            background-image: url('../images/close.png');
+            background-repeat: no-repeat;
+            background-position: -22px 0;
+            width: 15px;
+            height: 15px;
+        }
+    }	// end dd
+
+    dd.message {
+
+        ul {     
+            li:first-child:before {
+                background-image: url('../images/message-icons.png');
+                background-repeat: no-repeat;
+                background-position: 0 -102px;
+            }
+        }
+    }	// end .message
+
+    dd.warning {
+        ul {     
+            li:first-child:before {
+                background-image: url('../images/message-icons.png');
+                background-repeat: no-repeat;
+                background-position: 0 -2px;
+            }
+        }
+    }	// end .message
+
+    dd.error {
+        ul {      
+            li:first-child:before {
+                background-image: url('../images/message-icons.png');
+                background-repeat: no-repeat;
+                background-position: 0 -52px;
+            }
+        }
+    }	// end .message
+}

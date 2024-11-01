@@ -1,0 +1,317 @@
+/*	LOADING BAR */
+
+$colorYellow: #FFD10F;
+$colorBlue: #29C6F1; 	
+$colorGreen: #88E22E;
+$colorOrange: #ff7f00;
+$colorRed: #ff0000;
+$colorPurple: #c200c2;
+
+.loading-bar-container {
+    position: fixed;
+    width: 100%;
+    bottom: 90px;
+    display: none;
+    z-index: 10000;
+
+    .loading-bar-section {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .loading-bar {
+        padding: 10px;
+        width: 150px;
+        margin: 0 auto;
+
+        background-color: #fff;
+        @include box-shadow();
+        @include round-corners();
+
+        .loading-icon, .loading-text {
+            display: inline;
+            float: left;
+
+            p{
+                margin: 0;
+            }
+        }
+
+        .loading-icon {
+            position: relative;
+            width: 54px;
+            height: 53px;
+
+            .frame {
+                background: url(../images/sprite-loadingbar.png) no-repeat 0 0;
+                width: 54px;
+                height: 53px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 100;
+
+            }
+
+            .graphic {
+                background: $colorBlue url(../images/sprite-loadingbar.png) no-repeat 0 -95px;
+                width: 43px;
+                height: 41px;
+                margin: 5px 0px 0px 5px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 50;
+            }
+
+        }	/* end .loading-icon */
+
+        .loading-text {
+            margin: 15px 0px 0px 10px;            
+        }	/* end .loading-text */
+
+    }	/* end .loading-bar */
+
+    &.inside{
+        position: absolute;
+        top: 50%;
+        margin-top: -30px;
+        bottom: auto;
+
+        .loading-text{
+            display: none !important;
+
+        }
+        .loading-bar{
+            @include box-shadow(0,0,0,0);
+            @include round-corners(0,0,0,0);
+            background: transparent;
+        }
+
+        .loading-icon{
+            display: block;
+            float: none;
+            margin: auto
+        }
+    }
+
+} /* end .loading-bar-container */
+
+.loading-bar-animation {
+    .loading-bar {
+        .loading-icon {
+            .graphic {
+                animation:loading-animation 5s ease 0s infinite normal;
+                -o-animation:loading-animation 5s ease 0s infinite normal;		/* Opera 12+: */
+                -ms-animation:loading-animation 5s ease 0s infinite normal;		/* IE9 */
+                -webkit-animation:loading-animation 5s ease 0s infinite normal;	/* Safari and Chrome: */
+            }
+        }
+    }
+}	/* end .loading-bar-animation */
+
+@keyframes loading-animation {
+    0%   {background: $colorBlue url(../images/sprite-loadingbar.png) no-repeat 0 -95px;}
+    15%  {background: $colorBlue url(../images/sprite-loadingbar.png) no-repeat 0 -95px;}
+
+    20%  {background: $colorGreen url(../images/sprite-loadingbar.png) no-repeat 0 -136px;}
+    35%  {background: $colorGreen url(../images/sprite-loadingbar.png) no-repeat 0 -136px;}
+
+    40%  {background: $colorYellow url(../images/sprite-loadingbar.png) no-repeat 0 -177px;}
+    55%  {background: $colorYellow url(../images/sprite-loadingbar.png) no-repeat 0 -177px;}
+
+    60%  {background: $colorOrange url(../images/sprite-loadingbar.png) no-repeat 0 -218px;}
+    75%  {background: $colorOrange url(../images/sprite-loadingbar.png) no-repeat 0 -218px;}
+
+    80% {background: $colorRed url(../images/sprite-loadingbar.png) no-repeat 0 -259px;}
+    95% {background: $colorRed url(../images/sprite-loadingbar.png) no-repeat 0 -259px;}
+
+    100%   {background: $colorBlue url(../images/sprite-loadingbar.png) no-repeat 0 -300px;}
+}
+
+/* Safari and Chrome: */
+@-webkit-keyframes loading-animation {
+    0%   {background: $colorBlue url(../images/sprite-loadingbar.png) no-repeat 0 -95px;}
+    15%  {background: $colorBlue url(../images/sprite-loadingbar.png) no-repeat 0 -95px;}
+
+    20%  {background: $colorGreen url(../images/sprite-loadingbar.png) no-repeat 0 -136px;}
+    35%  {background: $colorGreen url(../images/sprite-loadingbar.png) no-repeat 0 -136px;}
+
+    40%  {background: $colorYellow url(../images/sprite-loadingbar.png) no-repeat 0 -177px;}
+    55%  {background: $colorYellow url(../images/sprite-loadingbar.png) no-repeat 0 -177px;}
+
+    60%  {background: $colorOrange url(../images/sprite-loadingbar.png) no-repeat 0 -218px;}
+    75%  {background: $colorOrange url(../images/sprite-loadingbar.png) no-repeat 0 -218px;}
+
+    80% {background: $colorRed url(../images/sprite-loadingbar.png) no-repeat 0 -259px;}
+    95% {background: $colorRed url(../images/sprite-loadingbar.png) no-repeat 0 -259px;}
+
+    100%   {background: $colorBlue url(../images/sprite-loadingbar.png) no-repeat 0 -300px;}
+}
+
+.loading-bar2-container {	
+    position: absolute;		
+    width: 100%;
+    top: 50%;					
+    display: none;
+    z-index: 10000;
+    margin-top: -26px;
+    height: 100%;				
+
+    .loading-icon2 {
+        margin: 0 auto;
+        position: relative;
+        width: 54px;
+
+        .frame2 {
+            background: url(../images/sprite-loadingbar.png) no-repeat 0 0;
+            width: 54px;
+            height: 53px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+        }
+
+        .graphic2 {
+            width: 43px;
+            height: 41px;
+            position: absolute;
+            left: 5px;
+            top: 4px;
+            z-index: 50;
+            overflow: hidden;
+
+            .gear1, .gear2 {
+                background: url(../images/loadingicon-whitegear.png) no-repeat 0 0;
+                width: 46px;
+                height: 46px;
+                position: absolute;
+            }
+
+            .gear1-shadow, .gear2-shadow {
+                background: url(../images/loadingicon-blackgear.png) no-repeat 0 0;
+                width: 46px;
+                height: 46px;
+                position: absolute;
+            }
+
+            .gear1 {
+                left: -10px;
+                top: -15px;
+                transform:rotate(10deg);
+                -ms-transform:rotate(10deg); 			/* IE 9 */
+                -webkit-transform:rotate(10deg); 		/* Safari and Chrome */
+            }
+
+            .gear1-shadow {
+                left: -10px;
+                top: -14px;
+                transform:rotate(10deg);
+                -ms-transform:rotate(10deg); 			/* IE 9 */
+                -webkit-transform:rotate(10deg); 		/* Safari and Chrome */
+            }
+
+            .gear2 {
+                right: -24px;
+                bottom: -20px;
+            }
+
+            .gear2-shadow {
+                right: -24px;
+                bottom: -21px;
+            }
+        }	/* end . graphic2 */
+
+    }	/* end .loading-icon2 */
+
+}	/* end .loading-bar2-container */
+
+.loading-bar2-animation {
+    display: block;
+
+    .loading-icon2 {
+        .graphic2 {
+            animation: bg-animation 5s ease 0s infinite normal;
+            -o-animation: bg-animation 5s ease 0s infinite normal;		/* Opera 12+: */
+            -ms-animation: bg-animation 5s ease 0s infinite normal;		/* IE9: */
+            -webkit-animation: bg-animation 5s ease 0s infinite normal;	/* Safari and Chrome: */
+
+            .gear1, .gear1-shadow {
+                animation: clockwise 5s infinite linear;
+                -o-animation: clockwise 5s infinite linear;			/* Opera 12+: */
+                -ms-animation: clockwise 5s infinite linear;		/* IE9: */
+                -webkit-animation: clockwise 5s infinite linear;	/* Safari and Chrome: */
+            }
+            .gear2, .gear2-shadow {
+                animation: counter-clockwise 5s infinite linear;
+                -o-animation: counter-clockwise 5s infinite linear;			/* Opera 12+: */
+                -ms-animation: counter-clockwise 5s infinite linear;		/* IE9: */
+                -webkit-animation: counter-clockwise 5s infinite linear;	/* Safari and Chrome: */
+            }
+        }
+    }
+}	/* end .loading-bar-animation */
+
+@keyframes clockwise {
+    0%   {transform: rotate(10deg);}
+    100%   {transform: rotate(1090deg);}	
+}
+
+/* Safari and Chrome: */
+@-webkit-keyframes clockwise {
+    0%   {-webkit-transform: rotate(10deg);}
+    100%   {-webkit-transform: rotate(1090deg);}	
+}
+
+@keyframes counter-clockwise {
+    0%   {transform: rotate(0deg);}
+    100%   {transform: rotate(-1080deg);}	
+}
+
+/* Safari and Chrome: */
+@-webkit-keyframes counter-clockwise {
+    0%   {-webkit-transform: rotate(0deg);}
+    100%   {-webkit-transform: rotate(-1080deg);}	
+}
+
+@keyframes bg-animation {
+    0%   {background-color: $colorBlue;}
+    15%  {background-color: $colorBlue;}
+
+    20%  {background-color: $colorYellow;}
+    35%  {background-color: $colorYellow;}
+
+    40%  {background-color: $colorRed;}	
+    55%  {background-color: $colorRed;}	
+
+    60%  {background-color: $colorGreen;}
+    75%  {background-color: $colorGreen;}
+
+    80% {background-color: $colorPurple;}
+    95% {background-color: $colorPurple;}	
+
+    100%   {background-color: $colorBlue;}
+}
+
+/* Safari and Chrome: */
+@-webkit-keyframes bg-animation {
+    0%   {background-color: $colorBlue;}
+    15%  {background-color: $colorBlue;}
+
+    20%  {background-color: $colorYellow;}
+    35%  {background-color: $colorYellow;}
+
+    40%  {background-color: $colorRed;}	
+    55%  {background-color: $colorRed;}
+
+    60%  {background-color: $colorGreen;}
+    75%  {background-color: $colorGreen;}
+
+    80% {background-color: $colorPurple;}
+    95% {background-color: $colorPurple;}	
+
+    100%   {background-color: $colorBlue;}
+}
+
+/* END LOADING BAR */

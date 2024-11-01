@@ -1,0 +1,886 @@
+ 
+/************
+    GENERAL
+*************/
+
+@mixin box-shadow($h:0px, $v:1px, $blur:1px, $transparency:0.3) {
+    box-shadow: $h $v $blur rgba(0,0,0,$transparency);
+    -moz-box-shadow: $h $v $blur rgba(0,0,0,$transparency);
+    -webkit-box-shadow: $h $v $blur rgba(0,0,0,$transparency);
+}
+
+@mixin round-corners($r1: 5px, $r2: 5px, $r3: 5px, $r4: 5px){
+    border-radius: $r1 $r2 $r3 $r4;
+    -moz-border-radius: $r1 $r2 $r3 $r4;
+    -webkit-border-radius: $r1 $r2 $r3 $r4;
+}
+
+.media-frame-content{
+    overflow: visible;
+}
+
+#yi-main{
+    font-size: 14px;
+    float:left;
+    width:100%;
+    position:relative; 
+
+    .subcontent{
+        float: left;
+        position: relative;
+        height: 100%;
+    }
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#yi-side-section{
+    float: right;
+    width:299px;
+    height: 100%;
+    background:#f3f3f3;
+    border-left:1px solid #ddd;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.btn{
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px 23px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-blue{
+    background-color: #008eba;
+    border-color: #4c4c4c;
+    color: #fff;
+}
+
+.btn-slim{
+    padding: 5px 15px;
+}
+
+.yi-clearer {
+    display:block;
+    height:0.01px;
+    width:100%;
+    display:block;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
+}
+
+.count{
+    border: 1px solid #ddd;
+    @include round-corners(7px,7px,7px,7px);
+    display: none;
+    padding: 1px 8px;
+    margin: 0 8px;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: normal;
+}
+
+input.error{
+    border-color: #5B9DD9 !important;
+    box-shadow: 0 0 3px rgba(30, 140, 190, 0.8) !important;
+}
+
+/************
+    HEADER
+*************/
+
+#yi-logo{
+    float:left;
+    height: 56px;
+    cursor: pointer;
+}
+
+#yi-title-bar-message-box{
+    float:left;
+    height: 56px;
+    line-height: 56px;
+    color: #15b5e2;
+    font-size: 16px;
+    margin-left: 100px;
+}
+
+#yi-siteheader a {
+    color:#0074a2;
+    font-family:Trebuchet MS;
+    font-size:13px;
+    text-decoration:none;
+    margin-left: 20px;
+}
+
+#yi-menu{
+    float:right;
+    margin-right: 60px;
+    margin-top: 15px;
+}
+
+/************
+    FILTERS
+*************/
+
+#yay_search{
+    float: left;margin-top: 20px;
+}
+
+#yi-search-top{
+    border-bottom: 1px solid #DDDDDD;
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-left: 2px;
+    position: relative;
+
+    @media (max-width: 1136px){ 
+        padding-bottom: 53px;
+    }
+}
+
+#yi-search-key{
+    float: left;
+    margin: 20px 15px;
+    max-width: 300px;
+    width: calc(100% - 480px);
+    width: -webkit-calc(100% - 480px);
+    height: 30px;
+
+    @media (max-width: 1136px){ 
+        width: calc(100% - 170px);
+        width: -webkit-calc(100% - 170px);
+        max-width: none;
+    }
+
+}
+
+.yi-search-tabs{
+    right: 0;
+    list-style-type: none;
+    margin: 0;
+    position: absolute;
+    top: 17px;    
+    min-width: 355px;
+    width: calc(100% - 470px);
+    width: -webkit-calc(100% - 470px);
+
+    @media (max-width: 1136px){ 
+        top: 70px;
+        left: 20px;
+        right: auto;
+    }
+    
+    @media (max-width: 1050px){        
+        left: 8px;
+    }
+
+    label{
+        float: left;
+        border-width: 0 0 1px;
+        border-style: solid;
+        border-color: #DDDDDD;
+        padding: 9px 25px 0px 35px;
+        height: 44px;
+        cursor: pointer;
+        position: relative;
+
+        &:after{
+            background-image: url('../images/arrows.png');
+            background-repeat: no-repeat;
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-position: 0 0px;
+            float: right;
+            margin-left: 5px;
+            width: 13px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+
+        .count{
+            margin: 0 0 0 5px;
+        }
+    }
+
+    .yi-tabs-active{
+        border-width: 1px 1px 0 1px;
+        padding: 8px 34px 1px 24px;
+        background-color: #FFFFFF;
+    }
+
+    .yi-tabs-down:after{             
+        background-position: 0 -35px;
+    }   
+}
+
+/************
+    CONTENT
+*************/
+#yi-photos-loaded{
+    padding: 19px;
+    font-size: 13px;
+    visibility: hidden;
+    height: 20px;
+
+    span{
+        font-weight: bold;        
+    }
+}
+
+#yi-photos-loaded-photographer{
+    background: #eee;
+    padding: 5px 25px 5px 10px;
+    display: inline-block;
+    position: relative;
+    display: none;
+    font-size: 11px;
+    @include round-corners();
+    margin-left: 20px;
+    
+    span{
+        font-weight: normal;
+    }
+    
+    #yi-photos-loaded-photographer-close{
+        height: 15px;
+        width: 15px;
+        background: url('../images/close.png') no-repeat -20px 0;
+        position: absolute;
+        right: 7px;
+        top: 5px;
+        display: block;
+        cursor: pointer;
+    }
+    
+    #yi-photos-loaded-photographer-name{
+        font-weight: bold;
+    }
+}
+
+#yi-photo-list{
+    overflow-y: auto;
+    clear: both;
+    position: relative;
+    z-index: 1;
+}
+
+#yi-photo-infinite-list{
+    margin: 0 13px;
+    float: left;
+}
+
+.yay-image-thumb {
+    float:left;
+    margin:7px;
+    background-color:#eee;
+    border:1px solid #ccc;
+    width:120px;
+    height:120px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    cursor: pointer;
+    -moz-box-shadow:    inset 0 0 10px #ccc;
+    -webkit-box-shadow: inset 0 0 10px #ccc;
+    box-shadow:         inset 0 0 10px #ccc;
+    position: relative;
+
+    &.yay-image-selected{
+        border:4px solid #2ea2cc;
+        margin: 4px;
+        &:before{
+            content: "";
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: url('../images/checked.jpg');
+            width: 28px;
+            height: 28px;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .yay-celebrity-icon{
+        background: #fff url('../images/e.png');
+        width: 21px;
+        height: 21px;
+        display: block;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+
+        span{ 
+            display: none;
+        }
+    }
+
+    &:hover{   
+        .yay-celebrity-icon{  
+            right: 70px;
+
+            span{      
+                display: block;
+                background-color: #fff; 
+                float: left;
+                margin-left: 21px;
+                line-height: 21px;
+                padding: 0 3px;
+            }
+        }
+    }
+
+    &.dragged{
+        background-color: transparent;
+        border: 0;
+        -moz-box-shadow:    none;
+        -webkit-box-shadow: none;
+        box-shadow:         none;
+        z-index: 100;
+
+        .yay-celebrity-icon{
+            display: none;
+        }
+        
+        &:before{
+            background: none !important;
+        }
+    }
+}
+
+.yay-image-info{
+    display: none;
+}
+
+#yi-photo-preview{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;    
+
+    .yi-bg{        
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        opacity: 0.5;
+    }
+
+    &.active{
+        display: block;
+    }
+
+    #yi-photo-preview-img{
+        width: 512px;
+        height: auto;        
+        left: 50%;
+        margin-left: -256px;
+        top: 50%;
+        margin-top: -256px;
+        position: absolute;
+        z-index: 1001; 
+        border: 3px solid #DDDDDD;
+        padding: 30px;
+        @include round-corners(7px,7px,7px,7px);
+        background-color: #fff;
+    }
+
+    #yi-photo-preview-img-ins{
+        visibility: hidden;
+        max-width: 512px;
+    }
+
+    #yi-photo-preview-img-bg{
+        width: auto;
+        height: auto;
+        background-repeat: no-repeat;
+        background-position: center 22px;
+        margin-top: -22px;
+        background-size: contain;
+    }
+
+    #yi-photo-preview-close{
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        height: 30px;
+        width: 30px;
+        background: url('../images/close-icons.png') no-repeat 0 -2px;
+        cursor: pointer;
+    }
+}
+
+/************
+    FOOTER
+*************/
+
+#yay-media-toolbar{
+    float: right;
+    margin: 16px;
+}
+
+/************
+    DETAILS
+*************/
+
+.yi-image-details{
+    margin: 15px 20px 15px 19px;
+    display: inline-block;
+
+    .yi-image-details-buttons{
+        margin-top: 20px;
+    }
+
+    .yi-image-info-row {
+        margin: 3px 0; 
+
+        label {
+            width: 40%;
+            display:inline-block;
+            font-size: 13px;
+            vertical-align: top;
+        }
+        div {
+            width: 56%;
+            display:inline-block;
+            font-size: 13px;
+        }
+    }
+}
+
+#yi-image-src{
+    visibility:hidden;
+    width:1px;
+    height:1px;
+}
+
+
+
+#yi-image-details-additional{
+    position: relative;
+    min-height:100px;
+    width:100%;
+}
+
+#yi-image{
+    border: 1px solid #EEEEEE;
+    height: 258px;
+    width: 258px;
+    background-color: #fefefe;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;  
+    position: relative;
+
+    .yay-celebrity-icon{
+
+        display: none;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        background-color: #fff; 
+        padding: 1px 3px;
+        line-height: 21px;
+
+        &:before{
+            content: "";
+            display: block;
+            float: left;
+            background: #fff url('../images/e.png');
+            width: 21px;
+            height: 21px;
+        }
+
+    }
+
+    #yi-image-preview-button{
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 5px;
+        bottom: 5px;
+        background: url('../images/loop.png');
+        background-position: 0px 2px;
+        cursor: pointer;
+
+        &:hover{
+            background-position: 0px 27px;
+        }
+    }
+
+}
+
+.yi-more-images{
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: inline-block;
+
+    #yi-similar-navi, #yi-photographer-navi{
+        width: 100%;
+        display: table;
+        border-spacing: 6px;
+    }
+
+    .similarimages_lt, .similarimages_gt, .photographerimages_lt, .photographerimages_gt {
+        background-color: #F7F7F7;
+        border: 1px solid #CCCCCC;
+        border-radius: 2px;
+        color: #CCCCCC;               
+        height: 30px;
+        line-height: 30px;       
+        text-align: center;
+        width: 30px;
+        display: table-cell;
+        margin: 6px;
+    }   
+
+    .yay-similarimages, .yay_photographer{
+        text-align: center;
+        display: table-cell;       
+    }
+}
+
+
+
+.yi-image-details h4, .yi-more-images h4 {
+    font-family: Trebuchet MS;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.yi-image-details h5, .yi-more-images h5 {
+    font-size: 14px;
+    color: #333;
+}
+
+.yi-more-images{
+
+    margin: 15px 20px 15px 19px; 
+    width: calc(100% - 39px);
+    width: -webkit-calc(100% - 39px);
+
+    h4{
+        margin: 0;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        font-weight: bold;
+    }
+
+    .yi-more-list{
+        padding: 15px 2px 5px;
+        position: relative;
+        min-height: 50px;
+    }
+
+    .yi-more-images-thumb{
+        display:inline-block;
+        width:70px;
+        height:70px;
+        margin:5px;
+        background:#eee;
+        border:1px solid #ccc;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        cursor: pointer;
+        -moz-box-shadow:    inset 0 0 10px #ccc;
+        -webkit-box-shadow: inset 0 0 10px #ccc;
+        box-shadow:         inset 0 0 10px #ccc;
+        position: relative;
+
+        .yay-celebrity-icon{
+            background: #fff url('../images/e.png');
+            width: 21px;
+            height: 21px;
+            display: block;
+            position: absolute;
+            bottom: 3px;
+            right: 3px;
+        }
+    }
+}
+
+.yi-list-tabs{    
+    margin: 15px 20px 15px 19px;   
+    position: relative;
+    height: 580px;
+
+
+    .yi-list-tab{
+        float: left; 
+
+        label{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 20px;
+            padding: 10px 1px;
+            z-index: 2;
+            width: 100px;
+            text-align: center;            
+        }
+
+        > div{
+            display: none;
+            position: absolute;
+            height: 520px;
+            left: 0;
+            top: 39px;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 1;
+            border-radius: 0 5px 5px 5px;
+            font-size: 13px;
+            padding: 10px;
+        }
+
+        input{
+            display: none;
+        }        
+
+        [type="radio"]:checked {
+
+            ~ div{
+                display: block;
+            }
+            ~ label{
+                background: none repeat scroll 0 0 #FFFFFF;
+                border-color: #ccc #ccc #FFFFFF;
+                border-radius: 5px 5px 0 0;
+                border-style: solid;
+                border-width: 1px;
+                padding: 9px 0;
+            }
+        }
+
+        ~ .yi-list-tab{
+
+            div{
+                border-radius: 5px 5px 5px 5px;
+            }
+
+            label{                
+                left: 100px;
+            }
+        }
+    }
+}
+
+
+
+/************
+    OTHER
+*************/
+#avpw_controls { z-index:1000000 !important; }
+
+.loader-box{
+    position: absolute;    
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    .loader-content{
+        position: absolute;    
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background: #fff;
+        opacity: 0.8;        
+    }
+    .loader-animation{
+        position: absolute;    
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1001;
+        background: url('../images/loading.gif') no-repeat center center;
+    }
+}
+
+
+
+.jcarousel-wrapper {   
+    position: relative;    
+    width: 100%;
+    clear: both;
+}
+
+/** Carousel **/
+
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.jcarousel ul {   
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel li {
+    float: left;     
+}
+
+
+
+/** Carousel Controls **/
+
+.jcarousel-control{
+    position: absolute;
+    bottom: -5px;
+    height: 45px !important;
+    width: 100%;
+    background: #fff;
+}
+
+.jcarousel-control-prev,
+.jcarousel-control-next {
+    position: absolute;
+    bottom: 0;   
+    background-color: #F7F7F7;
+    border: 1px solid #CCCCCC !important;
+    border-radius: 2px;
+    color: #666 !important;               
+    height: 30px;
+    line-height: 30px;       
+    text-align: center;
+    width: 30px;
+    display: table-cell;
+    margin: 6px;
+
+    &.inactive{
+        color: #CCCCCC !important; 
+        border: 1px solid #eee !important;
+        cursor: auto;
+        background-color: #FAFAFA;
+    }
+}
+
+.jcarousel-control-prev {
+    left: 155px;
+}
+
+.jcarousel-control-next {
+    right: 155px;
+}
+
+/** Carousel Pagination **/
+
+.jcarousel-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    margin: 0;
+
+    @media (max-width: 1136px){ 
+        display: none;
+    }
+}
+
+.jcarousel-pagination a {
+    text-decoration: none;
+    display: inline-block;
+
+    font-size: 11px;
+    height: 10px;
+    width: 10px;
+    line-height: 10px;
+
+    background: #fff;
+    color: #4E443C;
+    border-radius: 10px;
+    text-indent: -9999px;
+
+    margin-right: 7px;
+
+    -webkit-box-shadow: 0 0 2px #4E443C;
+    -moz-box-shadow: 0 0 2px #4E443C;
+    box-shadow: 0 0 2px #4E443C;
+}
+
+.jcarousel-pagination a.active {
+    background: #4E443C;
+    color: #fff;
+    opacity: 1;
+
+    -webkit-box-shadow: 0 0 2px #F0EFE7;
+    -moz-box-shadow: 0 0 2px #F0EFE7;
+    box-shadow: 0 0 2px #F0EFE7;
+}
+
+.yay-icon-ok-green-small{    
+    background-image: url('../images/check-color-icons.png');
+    background-repeat: no-repeat;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-position: -2px -1px;
+    float: left;
+    margin-right: 5px;       
+}
+
+.yay-icon-bad{
+    background-image: url('../images/check-color-icons.png');
+    background-repeat: no-repeat;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-position: -1px -93px;
+    float: left;
+    margin-right: 5px;
+}
+
+@import "_loader.scss";
+@import "_login.scss";
+@import "_messages.scss";
+@import "_aviary_custom.scss";
+@import "_filters_icons.scss";
+@import "_filters.scss";
